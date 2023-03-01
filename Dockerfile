@@ -14,7 +14,7 @@ RUN chmod 600 /home/build/.gnupg/gpg.conf
 RUN yes | pacman -Sy archlinux-keyring
 
 # update and install packages
-RUN yes | pacman -Syu git wget python-jinja python-srcinfo
+RUN yes | pacman -Syu git wget python-jinja python-srcinfo sshpass
 
 USER build
 WORKDIR /home/build
