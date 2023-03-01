@@ -4,12 +4,6 @@ FROM archlinux:base-devel
 RUN useradd --create-home build
 RUN echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-# configure default gpg key server to a more reliable one
-COPY gpg.conf /home/build/.gnupg/gpg.conf
-RUN chown -R build:build /home/build/.gnupg
-RUN chmod 700 /home/build/.gnupg
-RUN chmod 600 /home/build/.gnupg/gpg.conf
-
 # update keyring first
 RUN yes | pacman -Sy archlinux-keyring
 
